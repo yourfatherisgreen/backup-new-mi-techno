@@ -59,7 +59,7 @@
             <!-- Logo -->
             <div class="logo">
                 <!-- Menggunakan logo HMPS MI yang kecil untuk navigasi, sesuai desain -->
-                <img src="LOGO HIMPUNAN PROGRAM STUDI MANAJEMEN INFORMATIKA.png" alt="Logo HMPS MI" class="h-12">
+                <img src="{{ asset('asset/logo-hmps.png') }}" alt="Logo HMPS MI" class="h-12 border-2 border-b-cyan-500 rounded-full" >
             </div>
             
             <!-- Link Navigasi -->
@@ -113,7 +113,7 @@
                     <!-- Gambar (dengan container putih) -->
                     <div class="card-image w-full md:w-1/3 flex justify-center p-4">
                         <div class="bg-white rounded-lg p-4 shadow-md">
-                            <img src="LOGO HIMPUNAN PROGRAM STUDI MANAJEMEN INFORMATIKA.png" alt="Logo HMPS MI" class="max-h-40 object-contain">
+                            <img src="{{ asset('asset/logo-hmps.png') }}"alt="Logo HMPS MI" class="max-h-40 object-contain">
                         </div>
                     </div>
                 </div>
@@ -171,43 +171,17 @@
                 <h4 class="text-xl text-center text-gray-600 mb-12 fade-in">2024/2025</h4>
 
                 <!-- Grid Divisi (3-2) -->
-                <!-- DIUBAH: Menggunakan Flexbox untuk memastikan layout 3-2 yang rata tengah -->
-                <div class="flex flex-col items-center gap-6 max-w-5xl mx-auto">
-                    
-                    <!-- Baris 1: 3 item -->
-                    <div class="flex flex-wrap justify-center gap-6 w-full">
-                        <!-- Item 1: PSDM -->
-                        <div class="w-full sm:w-60 flex flex-col items-center bg-white rounded-2xl border-4 border-blue-200 p-6 shadow-md transition duration-300 hover:shadow-xl hover:-translate-y-2 fade-in" style="animation-delay: 0.2s;">
-                            <img src="DIVISI PSDM.png" alt="Divisi PSDM" class="w-full max-w-[150px] object-contain">
-                            <p class="mt-3 font-semibold text-blue-800">Divisi SDM</p>
-                        </div>
-                        
-                        <!-- Item 2: IPTEK -->
-                        <div class="w-full sm:w-60 flex flex-col items-center bg-white rounded-2xl border-4 border-blue-200 p-6 shadow-md transition duration-300 hover:shadow-xl hover:-translate-y-2 fade-in" style="animation-delay: 0.4s;">
-                            <img src="DIVISI IPTEK.png" alt="Divisi IPTEK" class="w-full max-w-[150px] object-contain">
-                            <p class="mt-3 font-semibold text-blue-800">Divisi IPTEK</p>
-                        </div>
-                        
-                        <!-- Item 3: Internal -->
-                        <div class="w-full sm:w-60 flex flex-col items-center bg-white rounded-2xl border-4 border-blue-200 p-6 shadow-md transition duration-300 hover:shadow-xl hover:-translate-y-2 fade-in" style="animation-delay: 0.6s;">
-                            <img src="DIVISI INTERNAL.png" alt="Divisi Internal" class="w-full max-w-[150px] object-contain">
-                            <p class="mt-3 font-semibold text-blue-800">Divisi Internal</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Baris 2: 2 item -->
-                    <div class="flex flex-wrap justify-center gap-6 w-full">
-                        <!-- Item 4: Eksternal -->
-                        <div class="w-full sm:w-60 flex flex-col items-center bg-white rounded-2xl border-4 border-blue-200 p-6 shadow-md transition duration-300 hover:shadow-xl hover:-translate-y-2 fade-in" style="animation-delay: 0.8s;">
-                            <img src="DIVISI EKSTERNAL.png" alt="Divisi Eksternal" class="w-full max-w-[150px] object-contain">
-                            <p class="mt-3 font-semibold text-blue-800">Divisi Eksternal</p>
-                        </div>
-                        
-                        <!-- Item 5: BD -->
-                        <div class="w-full sm:w-60 flex flex-col items-center bg-white rounded-2xl border-4 border-blue-200 p-6 shadow-md transition duration-300 hover:shadow-xl hover:-translate-y-2 fade-in" style="animation-delay: 1.0s;">
-                            <img src="DIVISI BISNIS DEVELOPMENT.png" alt="Divisi Bisnis Development" class="w-full max-w-[150px] object-contain">
-                            <p class="mt-3 font-semibold text-blue-800">Divisi BD</p>
-                        </div>
+                <div class="flex flex-wrap justify-center gap-6 w-full">
+    @foreach ($divisions as $division)
+        <div class="w-full sm:w-60 flex flex-col items-center bg-white rounded-2xl border-4 border-blue-200 p-6 shadow-md transition duration-300 hover:shadow-xl hover:-translate-y-2 fade-in">
+            <img src="{{ asset('storage/' . ($division->cover ?? 'default.png')) }}" 
+                 alt="{{ $division->name }}" 
+                 class="w-full max-w-[150px] object-contain">
+            <p class="mt-3 font-semibold text-blue-800">{{ $division->name }}</p>
+        </div>
+    @endforeach
+</div>
+
                     </div>
 
                 </div>

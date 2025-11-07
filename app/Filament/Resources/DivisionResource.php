@@ -3,19 +3,21 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\DivisionResource\Pages;
-use App\Filament\Resources\DivisionResource\RelationManagers;
 use App\Models\Division;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Textarea;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 
 class DivisionResource extends Resource
 {
-      protected static ?string $model = Division::class;
+    protected static ?string $model = Division::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-building-office';
     protected static ?string $navigationLabel = 'Divisions';
@@ -25,16 +27,26 @@ class DivisionResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
-               ->schema([
-                Forms\Components\TextInput::make('name')
+            ->schema([
+                TextInput::make('name')
                     ->label('Division Name')
                     ->required()
                     ->maxLength(255),
 
-                Forms\Components\Textarea::make('description')
+                Textarea::make('description')
                     ->label('Description')
                     ->rows(4)
                     ->nullable(),
+
+                FileUpload::make('cover')
+                    ->label('Foto Cover')
+                    ->directory('covers') // disimpan di storage/app/public/covers
+                    ->image()
+                    ->imageEditor()
+                    ->maxSize(2048)
+                    ->deletable(true) // aktifin tombol hapus
+                    ->downloadable()
+                    ->visibility('public'),
             ]);
     }
 
@@ -42,33 +54,32 @@ class DivisionResource extends Resource
     {
         return $table
             ->columns([
-                    Tables\Columns\TextColumn::make('id')
-                    ->label('ID')
-                    ->sortable(),
+                ImageColumn::make('cover')
+                    ->label('Cover')
+                    ->square()
+                    ->defaultImageUrl(url('/images/default-cover.png')), // opsional kalau mau default image
 
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->label('Division Name')
                     ->searchable()
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('description')
+                TextColumn::make('description')
                     ->label('Description')
                     ->limit(50)
                     ->toggleable(),
 
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label('Created')
                     ->dateTime('d M Y, H:i'),
 
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label('Updated')
                     ->dateTime('d M Y, H:i'),
             ])
-            ->filters([
-                //
-            ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -79,17 +90,15 @@ class DivisionResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array
     {
         return [
             'index' => Pages\ListDivisions::route('/'),
-            // 'create' => Pages\CreateDivision::route('/create'),
-            // 'edit' => Pages\EditDivision::route('/{record}/edit'),
+            'create' => Pages\CreateDivision::route('/create'),
+            'edit' => Pages\EditDivision::route('/{record}/edit'),
         ];
     }
 }

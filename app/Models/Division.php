@@ -8,7 +8,8 @@ class Division extends Model
 {
     protected $fillable = [
         'name',
-        'description'
+        'description',
+        'cover'
     ];
 
     public function programs()
