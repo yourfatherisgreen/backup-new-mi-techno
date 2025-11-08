@@ -171,7 +171,7 @@ k                               eterampilan, potensi, dan kontribusi mereka guna
                 <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-900 mb-2 fade-in">DIVISI HMPS MI</h2>
                 <h4 class="text-xl text-center text-gray-600 mb-12 fade-in">2024/2025</h4>
 
-                <!-- Grid Divisi (3-2) -->
+               <!-- Grid Divisi (3-2) -->
                 <div class="flex flex-wrap justify-center gap-6 w-full">
     @foreach ($divisions as $division)
         <div class="w-full sm:w-60 flex flex-col items-center bg-white rounded-2xl border-4 border-blue-200 p-6 shadow-md transition duration-300 hover:shadow-xl hover:-translate-y-2 fade-in">

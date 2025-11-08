@@ -9,8 +9,22 @@ class Division extends Model
     protected $fillable = [
         'name',
         'description',
-        'cover'
+        'cover',
+        'slug'
     ];
+    protected static function boot()
+{
+    parent::boot();
+
+    static::creating(function ($division) {
+        $division->slug = \Str::slug($division->name);
+    });
+
+    static::updating(function ($division) {
+        $division->slug = \Str::slug($division->name);
+    });
+}
+
 
     public function programs()
     {
@@ -21,4 +35,9 @@ class Division extends Model
     {
         return $this->hasMany(Member::class);
     }
+    public function galleries()
+    {
+    return $this->hasMany(Gallery::class);
+    }
+    
 }
