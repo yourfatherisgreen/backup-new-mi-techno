@@ -79,21 +79,28 @@
         <!-- 2. Hero Section -->
         <!-- Background gradien teal/biru sesuai desain -->
         <!-- DIUBAH: Gradien disesuaikan agar lebih mirip desain (biru langit ke biru) -->
-        <section class="h-[70vh] bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-center px-4 relative ">
-            <div class="fade-in">
+        
+        <section class="h-[100vh] bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-center px-4 relative ">
+           <video autoplay muted loop playsinline 
+               class="absolute inset-0 w-full h-full object-cover z-0">
+            <source src="{{ asset('asset/videohero (1).mp4') }}" type="video/mp4">
+        </video>
+        <div class="fade-in">
                 <!-- Teks diubah jadi putih dan diberi shadow -->
-                <h1 class="text-4xl md:text-5xl font-bold text-white text-shadow">Selamat datang !</h1>
-                <p class="text-lg md:text-xl text-white text-shadow mt-2">
+                <h1 class="text-4xl md:text-5xl font-bold text-white text-shadow mt-3 ">Selamat datang !</h1>
+                <p class="text-lg md:text-xl text-white text-shadow mt-5">
                     Selamat Datang di Website<br>HMPS Manajemen Informatika Politeknik Negeri Medan
                 </p>
             </div>
         </section>
 
-        <!-- 3. Tentang Kami Section -->
-        <!-- Layout melengkung: bg-white, rounded-t-3xl, dan margin negatif (-mt-12) -->
-        <section id="tentang" class="py-16 md:py-24 bg-white relative -mt-12 rounded-t-[40px] shadow-xl">
-            <div class="container max-w-6xl mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-900 mb-12 fade-in">Tentang Kami</h2>
+       
+    <!-- 3. Tentang Kami Section -->
+            <section   section id="tentang" class="py-16 md:py-24 bg-white relative shadow-xl">
+             <div class="container max-w-6xl mx-auto px-4">
+          <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-900 mb-12 fade-in">
+            Tentang Kami
+        </h2>
 
                 <!-- Card: Apa Itu HMPS MI? -->
                 <!-- Kartu diubah jadi biru (sesuai desain) dengan teks putih -->
@@ -134,11 +141,7 @@
                         </p>
                     </div>
                     <!-- Gambar (dengan container putih) -->
-                    <div class="card-image w-full md:w-1/3 flex justify-center p-4">
-                        <div class="bg-white rounded-lg p-4 shadow-md">
-                            <img src="LOGO KABINET UTAMA.png" alt="Logo Kabinet Revolutionare" class="max-h-40 object-contain">
-                        </div>
-                    </div>
+                
                 </div>
 
                 <!-- Card: Misi HMPS MI -->
@@ -148,17 +151,15 @@
                     <div class="card-content w-full md:w-2/3">
                         <h3 class="text-2xl font-semibold text-white mb-3">MISI HMPS MI</h3>
                         <ul class="list-disc list-inside text-blue-50 space-y-2">
-                            <li>Menyelenggarakan program-program pengembangan diri...</li>
-                            <li>Menjalin dan menjaga relasi serta kerja sama...</li>
-                            <li>Memanfaatkan platform komunikasi yang efektif...</li>
+                            <li>Membangun program-program pengembangan diri bagi mahasiswa/i dalam berbagai bidang, baik di dalam maupun di luar lingkup prodi, sehingga setiap mahasiswa/i memiliki kesempatan untuk memaksimalkan
+k                               eterampilan, potensi, dan kontribusi mereka guna mencapai tujuan bersama
+                            HMPS MI.</li>
+                            <li>Meningkatkan kesadaran dan pemahaman seluruh mahasiswa/i mengenai pentingnya peran HMPS dalam mendukung prestasi akademik dan non-akademik melalui sosialisasi yang efektif.</li>
+                            <li>Memanfaatkan platform komunikasi yang efektif bagi mahasiswa/i aktif Program Studi untuk berbagi masukan, ide, dan umpan balik terkait pengembangan HMPS. Platform ini akan memastikan keterlibatan aktif mahasiswa/i dalam menanggapi hal yang terjadi pada lingkungan sekitar pembelajaran mereka.</li>
                         </ul>
                     </div>
                     <!-- Gambar (dengan container putih) -->
-                    <div class="card-image w-full md:w-1/3 flex justify-center p-4">
-                        <div class="bg-white rounded-lg p-4 shadow-md">
-                            <img src="LOGO KABINET UTAMA.png" alt="Logo Kabinet Revolutionare" class="max-h-40 object-contain">
-                        </div>
-                    </div>
+                 
                 </div>
 
             </div>
@@ -192,7 +193,7 @@
     <!-- 5. Footer -->
     <footer class="text-center p-6 bg-gray-800 text-gray-300 text-sm">
         <div class="container max-w-6xl mx-auto px-4">
-            <p>&copy; 2024 HMPS Manajemen Informatika. Dibuat ulang oleh Gemini.</p>
+            <p>&copy; 2024 HMPS Manajemen Informatika</p>
         </div>
     </footer>
 
