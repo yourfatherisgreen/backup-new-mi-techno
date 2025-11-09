@@ -53,9 +53,7 @@
 
                     <div class="w-full max-w-3xl bg-white/95 rounded-2xl shadow-2xl p-8 md:p-10 text-gray-800 text-left">
                         <p class="text-lg text-gray-700 mb-6 text-center">
-                            "{{$division->description}}"
-                    
-                        </p>
+                            "{{$division->description}}" </p>
                         <h3 class="text-2xl font-semibold mb-4 text-blue-800 text-center">Program kerja :</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 max-w-md mx-auto">
                             
@@ -63,7 +61,7 @@
                             <li>{{ $program->name }}</li>
                             <p>{{ $program->description }}</p>
                              @endforeach
-                            <li>decoy text</li>
+                            
                         </ul>
                     </div>
                 
@@ -73,82 +71,36 @@
         </section>
 
         <section id="struktur-divisi" class="py-16 md:py-24 min-h-screen flex items-center">
-            <div class="container max-w-6xl mx-auto px-4 fade-in">
-                <h2 class="text-4xl font-bold text-white text-shadow text-center mb-12">STRUKTUR DIVISI PSDM</h2>
+    <div class="container max-w-6xl mx-auto px-4 fade-in">
+    
+        <h2 class="text-4xl font-bold text-white text-shadow text-center mb-12"> Struktur {{ $division->name }}</h2>
+        
+        <div class="flex flex-wrap justify-center gap-6 md:gap-8">
+            
+            @foreach ($division->members as $member)
                 
-                <div class="flex flex-wrap justify-center gap-6 md:gap-8">
-                    
-                    <div class="bg-white/95 rounded-2xl shadow-lg p-4 w-48 text-center text-gray-800 transform transition duration-300 hover:scale-105">
-                        <img src="https://placehold.co/300x300/e0e0e0/aaaaaa?text=Foto+Sumbul" alt="Muhammad Sumbul" class="w-full h-auto rounded-lg mx-auto object-cover mb-3 shadow-md">
-                        <h4 class="font-semibold text-base text-blue-900">Muhammad Sumbul</h4>
-                        <p class="text-gray-600 text-sm">Ketua Divisi</p>
-                    </div>
-
-                    <div class="bg-white/95 rounded-2xl shadow-lg p-4 w-48 text-center text-gray-800 transform transition duration-300 hover:scale-105">
-                        <img src="https://placehold.co/400x400/a8d8a8/ffffff?text=Anggota" alt="Foto Anggota" class="w-full h-auto rounded-lg mx-auto object-cover mb-3 shadow-md">
-                        <h4 class="font-semibold text-base text-blue-900">Nama Anggota</h4>
-                        <p class="text-gray-600 text-sm">Jabatan</p>
-                    </div>
-
-                    <div class="bg-white/95 rounded-2xl shadow-lg p-4 w-48 text-center text-gray-800 transform transition duration-300 hover:scale-105">
-                        <img src="https://placehold.co/400x400/a8d8a8/ffffff?text=Anggota" alt="Foto Anggota" class="w-full h-auto rounded-lg mx-auto object-cover mb-3 shadow-md">
-                        <h4 class="font-semibold text-base text-blue-900">Nama Anggota</h4>
-                        <p class="text-gray-600 text-sm">Jabatan</p>
-                    </div>
-
-                    <div class="bg-white/95 rounded-2xl shadow-lg p-4 w-48 text-center text-gray-800 transform transition duration-300 hover:scale-105">
-                        <img src="https://placehold.co/400x400/a8d8a8/ffffff?text=Anggota" alt="Foto Anggota" class="w-full h-auto rounded-lg mx-auto object-cover mb-3 shadow-md">
-                        <h4 class="font-semibold text-base text-blue-900">Nama Anggota</h4>
-                        <p class="text-gray-600 text-sm">Jabatan</p>
-                    </div>
-
-                    <div class="bg-white/95 rounded-2xl shadow-lg p-4 w-48 text-center text-gray-800 transform transition duration-300 hover:scale-105">
-                        <img src="https://placehold.co/400x400/a8d8a8/ffffff?text=Anggota" alt="Foto Anggota" class="w-full h-auto rounded-lg mx-auto object-cover mb-3 shadow-md">
-                        <h4 class="font-semibold text-base text-blue-900">Nama Anggota</h4>
-                        <p class="text-gray-600 text-sm">Jabatan</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+                <div class="bg-white/95 rounded-2xl shadow-lg p-4 w-48 text-center text-gray-800 transform transition duration-300 hover:scale-105">
+                    <img src="{{ asset('storage/' . ($member->photo ?? 'default.png')) }}" alt="{{$member->name}}" class="w-full h-auto rounded-lg mx-auto object-cover mb-3 shadow-md">
+                    <h4 class="font-semibold text-base text-blue-900">{{$member->name}}</h4>
+                    <p class="text-gray-600 text-sm">{{$member->position}}</p>
+                </div> 
+                @endforeach
+            
+        </div> </div>
+</section>
 
         <section id="galeri" class="py-16 md:py-24 min-h-screen flex items-center">
             <div class="container max-w-4xl mx-auto px-4 fade-in">
                 <h2 class="text-4xl font-bold text-white text-shadow text-center mb-12">OUR GALLERY</h2>
-                
+               
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-                    
+                     @foreach ($division->galleries as $gallery)
                     <div class="bg-white/95 rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-                        <img src="https://placehold.co/400x400/a8d8a8/ffffff?text=Galeri" alt="Galeri 1" class="w-full h-auto object-cover aspect-square">
+                        <img src="{{ asset('storage/' . ($gallery->image_path ?? 'default.png'))}}" alt="foto" class="w-full h-auto object-cover aspect-square">
                     </div>
-                    <div class="bg-white/95 rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-                        <img src="https://placehold.co/400x400/a8d8a8/ffffff?text=Galeri" alt="Galeri 2" class="w-full h-auto object-cover aspect-square">
-                    </div>
-                    <div class="bg-white/95 rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-                        <img src="https://placehold.co/400x400/a8d8a8/ffffff?text=Galeri" alt="Galeri 3" class="w-full h-auto object-cover aspect-square">
-                    </div>
-                    <div class="bg-white/95 rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-                        <img src="https://placehold.co/400x400/a8d8a8/ffffff?text=Galeri" alt="Galeri 4" class="w-full h-auto object-cover aspect-square">
-                    </div>
-                    <div class="bg-white/95 rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-                        <img src="https://placehold.co/400x400/a8d8a8/ffffff?text=Galeri" alt="Galeri 5" class="w-full h-auto object-cover aspect-square">
-                    </div>
-                    <div class="bg-white/95 rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-                        <img src="https://placehold.co/400x400/a8d8a8/ffffff?text=Galeri" alt="Galeri 6" class="w-full h-auto object-cover aspect-square">
-                    </div>
-                    <div class="bg-white/95 rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-                        <img src="https://placehold.co/400x400/a8d8a8/ffffff?text=Galeri" alt="Galeri 7" class="w-full h-auto object-cover aspect-square">
-                    </div>
-                    <div class="bg-white/95 rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-                        <img src="https://placehold.co/400x400/a8d8a8/ffffff?text=Galeri" alt="Galeri 8" class="w-full h-auto object-cover aspect-square">
-                    </div>
-                    <div class="bg-white/95 rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-                        <img src="https://placehold.co/400x400/a8d8a8/ffffff?text=Galeri" alt="Galeri 9" class="w-full h-auto object-cover aspect-square">
-                    </div>
-                    <div class="bg-white/95 rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-                        <img src="https://placehold.co/400x400/a8d8a8/ffffff?text=Galeri" alt="Galeri 10" class="w-full h-auto object-cover aspect-square">
-                    </div>
+                    @endforeach
                 </div>
-
+                
             </div>
         </section>
 

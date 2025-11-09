@@ -145,7 +145,7 @@
                 </div>
 
                 <!-- Card: Misi HMPS MI -->
-                <!-- DIUBAH: Gradien digelapkan sedikit -->
+               
                 <div class="bg-gradient-to-r from-blue-700 to-blue-600 text-white shadow-lg rounded-xl overflow-hidden p-6 md:p-10 mb-8 flex flex-col md:flex-row items-center gap-6 fade-in" style="animation-delay: 0.6s;">
                     <!-- Konten Teks -->
                     <div class="card-content w-full md:w-2/3">
@@ -174,12 +174,16 @@ k                               eterampilan, potensi, dan kontribusi mereka guna
                <!-- Grid Divisi (3-2) -->
                 <div class="flex flex-wrap justify-center gap-6 w-full">
     @foreach ($divisions as $division)
-        <div class="w-full sm:w-60 flex flex-col items-center bg-white rounded-2xl border-4 border-blue-200 p-6 shadow-md transition duration-300 hover:shadow-xl hover:-translate-y-2 fade-in">
-            <img src="{{ asset('storage/' . ($division->cover ?? 'default.png')) }}" 
-                 alt="{{ $division->name }}" 
-                 class="w-full max-w-[150px] object-contain">
-            <p class="mt-3 font-semibold text-blue-800">{{ $division->name }}</p>
-        </div>
+      <a href="{{ route('divisions.show', $division->slug) }}" 
+                   class="w-full sm:w-60 flex flex-col items-center bg-white rounded-2xl border-4 border-blue-200 p-6 shadow-md transition duration-300 hover:shadow-xl hover:-translate-y-2 fade-in">
+                    
+                    <img src="{{ asset('storage/' . ($division->cover ?? 'default.png')) }}" 
+                         alt="{{ $division->name }}" 
+                         class="w-full max-w-[150px] object-contain">
+                    
+                    <p class="mt-3 font-semibold text-blue-800">{{ $division->name }}</p>
+
+                </a> 
     @endforeach
 </div>
 

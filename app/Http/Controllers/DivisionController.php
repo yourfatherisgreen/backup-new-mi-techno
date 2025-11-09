@@ -10,7 +10,7 @@ class DivisionController extends Controller
     public function show($slug)
 {
     $division = Division::where('slug', $slug)
-        ->with('programs') 
+        ->with('programs','members','galleries') 
         ->firstOrFail();
 
     return view('show', compact('division'));
