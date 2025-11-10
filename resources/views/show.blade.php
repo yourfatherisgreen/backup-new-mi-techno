@@ -53,7 +53,7 @@
 
                     <div class="w-full max-w-3xl bg-white/95 rounded-2xl shadow-2xl p-8 md:p-10 text-gray-800 text-left">
                         <p class="text-lg text-gray-700 mb-6 text-center">
-                            "{{$division->description}}" </p>
+                            {{$division->description}} </p>
                         <h3 class="text-2xl font-semibold mb-4 text-blue-800 text-center">Program kerja :</h3>
                         <ul class="list-disc list-inside text-gray-700 space-y-2 max-w-md mx-auto">
                             
@@ -77,16 +77,20 @@
         
         <div class="flex flex-wrap justify-center gap-6 md:gap-8">
             
-            @foreach ($division->members as $member)
-                
-                <div class="bg-white/95 rounded-2xl shadow-lg p-4 w-48 text-center text-gray-800 transform transition duration-300 hover:scale-105">
-                    <img src="{{ asset('storage/' . ($member->photo ?? 'default.png')) }}" alt="{{$member->name}}" class="w-full h-auto rounded-lg mx-auto object-cover mb-3 shadow-md">
-                    <h4 class="font-semibold text-base text-blue-900">{{$member->name}}</h4>
-                    <p class="text-gray-600 text-sm">{{$member->position}}</p>
-                </div> 
-                @endforeach
+          @foreach ($division->members as $member)
             
-        </div> </div>
+    <div class="bg-white/95 rounded-2xl shadow-lg p-4 w-48 text-center text-gray-800 transform transition duration-300 hover:scale-105">
+        <img src="{{ asset('storage/' . ($member->photo ?? 'default.png')) }}" 
+             alt="{{$member->name}}" 
+             class="w-full h-56 rounded-lg mx-auto object-cover mb-3 shadow-md">
+             
+        <h4 class="font-semibold text-base text-blue-900">{{$member->name}}</h4>
+        <p class="text-gray-600 text-sm">{{$member->position}}</p>
+    </div> 
+@endforeach
+            
+        </div>
+     </div>
 </section>
 
         <section id="galeri" class="py-16 md:py-24 min-h-screen flex items-center">
