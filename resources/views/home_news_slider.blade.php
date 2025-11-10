@@ -141,12 +141,7 @@
         </div>
     </main>
 
-    <!-- FOOTER (Sama kayak di 'home') -->
-    <footer id="kontak" class="text-center p-6 bg-gray-800 text-gray-300 text-sm">
-        <div class="container max-w-6xl mx-auto px-4">
-            <p>&copy; 2024 HMPS Manajemen Informatika.</p>
-        </div>
-    </footer>
+ 
 
     <!-- SCRIPT HAMBURGER MENU -->
     <script>

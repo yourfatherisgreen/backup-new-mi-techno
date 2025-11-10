@@ -117,11 +117,7 @@
         </div>
     </main>
 
-    <footer id="kontak" class="text-center p-6 bg-gray-800 text-gray-300 text-sm">
-        <div class="container max-w-6xl mx-auto px-4">
-            <p>&copy; 2024 HMPS Manajemen Informatika.</p>
-        </div>
-    </footer>
+   
 
     <script>
         const menuBtn = document.getElementById('menu-btn');

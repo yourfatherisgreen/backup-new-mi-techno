@@ -87,7 +87,7 @@
                 <li><a href="#" class="font-medium text-white hover:text-blue-300 transition duration-300 block py-2 md:py-0">Beranda</a></li>
                 <li><a href="#tentang" class="font-medium text-white hover:text-blue-300 transition duration-300 block py-2 md:py-0">Tentang Kami</a></li>
                 <li><a href="#divisi" class="font-medium text-white hover:text-blue-300 transition duration-300 block py-2 md:py-0">Divisi</a></li>
-                <li><a href="#berita" class="font-medium text-white hover:text-blue-300 transition duration-300 block py-2 md:py-0">Berits</a></li>
+                <li><a href="#berita" class="font-medium text-white hover:text-blue-300 transition duration-300 block py-2 md:py-0">Berita</a></li>
                 <li><a href="#kontak" class="font-medium text-white hover:text-blue-300 transition duration-300 block py-2 md:py-0">Hubungi kami</a></li>
             </ul>
         </nav>
